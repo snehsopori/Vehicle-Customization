@@ -1,0 +1,49 @@
+<div id = "main">
+    <h1>Muscle up your car</h1>
+</div>
+<div id='dv1'>
+    <form name="customerForm" #customerForm="ngForm">
+        <div *ngIf="successMessage" [ngClass] = "'success'"></div>
+        <div *ngIf="errorMessage" [ngClass] = "'error'"> {{errorMessage}} </div>
+        <header>{{header}}</header><br>
+        <label>CustomerName</label>
+        <input placeholder='Enter name' type='text' name="Username" #Username="ngModel" [(ngModel)]='customer.name' required minlength="3" maxlength="15"/>
+        <div *ngIf="Username.errors && (Username.dirty || Username.touched)" class="alert alert-danger">
+            <div [hidden]="!Username.errors.required">
+                Customer name is required!
+            </div>
+            <div [hidden]="!Username.errors.minlength">
+                Customer name must be at least 1 characters long.
+            </div>
+            <div [hidden]="!Username.errors.maxlength">
+                Name cannot be more than 20 characters long.
+            </div>
+        </div>
+
+
+        <label>Email</label>
+        <input placeholder='Enter email address' type='text' name="email1"  #email1="ngModel" [(ngModel)]='customer.email' required />
+        <div *ngIf="email1.errors && (email1.dirty || Username.touched)" class="alert alert-danger">
+            <div [hidden]="!email1.errors.required">
+                Customer email is required!
+            </div>
+        </div>
+        <label>PhoneNo</label>
+        <input placeholder='Pls enter number' type='number' name="phone1" #phone1="ngModel" [(ngModel)]='customer.phone' required/>
+
+        <div *ngIf="phone1.errors && (phone1.dirty || Username.touched)" class="alert alert-danger">
+            <div [hidden]="!phone1.errors.required">
+                Customer phoneNo is required!
+            </div>
+        </div>
+        <label>City :</label>
+        <select name='city' [(ngModel)]='customer.city'>
+            <option value=''>--Select--</option>
+            <option value='Mumbai'>Mumbai</option>
+            <option value='Pune'>Pune</option>
+            <option value='Delhi'>Delhi</option>
+        </select><br><br>
+        <input type='submit' value='Submit' id="btn1" (click)="addCustomer();" [disabled]="!customerForm.form.valid"/>
+        <input type='reset' value='Reset' id="btn2" />
+    </form>
+</div>

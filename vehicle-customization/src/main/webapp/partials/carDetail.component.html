@@ -1,0 +1,38 @@
+<div id = "main">
+    <h1>Muscle up your car</h1>
+</div>
+<div id='dv1'>
+    <form>
+        <header>{{header}}</header><br>
+        <label>Make</label>
+        <input placeholder='Enter Brand name' type='text' name="make" value="{{this.makeName}}"   />	<br>
+        <label>Model : </label>
+        <select name=model (change)="getTrim($event.target.value)">
+            <option value='' >--Select--</option>
+            <option *ngFor="let model of models" value="{{model}}">
+                {{model}}
+            </option>
+
+        </select><br>
+
+        <label>Trim : </label>
+        <select name=trim (change)="getYear($event.target.value)">
+            <option value=''>--Select--</option>
+            <option *ngFor="let trim of trims" value="{{trim}}">
+                {{trim}}
+            </option>
+
+        </select><br>
+        <label>Year : </label>
+        <select name=year (change)="getId($event.target.value)">
+            <option value=''>--Select--</option>
+            <option *ngFor="let year of years" value="{{year}}">
+                {{year}}
+            </option>
+
+        </select><br>
+        <input type='submit' value='Submit' id="btn1" (click)="passId(id);" />
+
+    </form>
+
+</div>

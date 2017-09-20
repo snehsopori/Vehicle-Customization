@@ -1,0 +1,35 @@
+<div id = "main">
+    <h1>Muscle up your car</h1>
+</div>
+<div>
+<table class="fixed" border=4 width=800 height=500 xmlns:bgcolor="http://www.w3.org/1999/xhtml"
+       xmlns:background-color="http://www.w3.org/1999/xhtml">
+
+        <thead>
+    <tr>
+        <th>Product Number</th>
+        <th>Accessory Name</th>
+        <th>Look</th>
+        <th>Price</th>
+        <th>Choose</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let accessory of accessories; let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{accessory.accessoryName}}</td>
+        <td><img src={{accessory.image}}/></td>
+        <td>{{accessory.accessoryPrice}}</td>
+        <td><input id="input{{i}}" type="checkbox" name="name" (click)="setChecked('input', i);"/>
+            <input id="id{{i}}" type="hidden" value="{{accessory.accId}}">&nbsp;</td>
+
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan=3><h3>Total price is : {{result}}</h3></td>
+        <td><input type="submit" background-color="green" value="Price" name="Price" (click)="sum();"/></td>
+        <td><input type="submit" background-color="green" value="Proceed" name="Proceed" (click)="funcToCust();"/></td>
+    </tr>
+    </tfoot>
+</table>
+</div>

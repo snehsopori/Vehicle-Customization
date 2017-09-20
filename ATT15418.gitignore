@@ -1,0 +1,25 @@
+# Frameworks output
+build/
+log/
+logs/
+out/
+bin/
+target/
+lib/
+
+# Java
+*.class
+*.log
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
